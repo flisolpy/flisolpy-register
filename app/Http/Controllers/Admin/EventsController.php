@@ -50,6 +50,7 @@ class EventsController extends Controller
             $new_request['backgroud_image'] = $cc->upload($request->file('backgroud_image'), 'backgroud-image');
         }
 
+        $new_request['slug'] = slugify($request->name);
         $data = new Events();
         $data->fill($new_request);
         $data->save();
