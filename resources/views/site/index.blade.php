@@ -14,7 +14,7 @@
                         <div class="card-body" style="background-image: url('{{ $file->backgroud_image }}')">
                             <h5 class="card-title">{{ $file->name }}</h5>
                             <img src="{{ $file->image }}" width="60%" alt="{{ $file->name }}">
-                            <p class="card-text">{{ $file->description }}</p>
+                            <p class="card-text">{!! $file->description !!}</p>
                             @if($file->enable_register)
                                 <a href="/incripcion/{{ $file->slug }}/{{ $file->id }}" title="Incripcion {{ $file->name }}" class="btn btn-primary">Inscribirse</a>
                             @endif
