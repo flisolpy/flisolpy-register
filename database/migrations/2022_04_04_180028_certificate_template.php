@@ -13,7 +13,18 @@ class CertificateTemplate extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('certificate_template', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('event_id');
+            $table->longText('content')->nullable();
+            $table->string('backgroud')->nullable();
+            $table->date('date');
+            $table->string('footer')->nullable();
+            $table->integer('create_uid')->nullable();
+            $table->integer('write_uid')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

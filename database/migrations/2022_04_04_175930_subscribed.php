@@ -13,7 +13,17 @@ class Subscribed extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('subscribed', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('work_place');
+            $table->integer('event_id');
+            $table->string('phone');
+            $table->boolean('confirmed')->default(false);
+            $table->integer('create_uid')->nullable();
+            $table->integer('write_uid')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
