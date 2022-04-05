@@ -50,7 +50,9 @@ class EventsController extends Controller
             $new_request['backgroud_image'] = $cc->upload($request->file('backgroud_image'), 'backgroud-image');
         }
 
-        $new_request['slug'] = slugify($request->name);
+
+
+        $new_request['slug'] = slugify($request->name) .'-'.  (Events::select('id')->orderBy('id', 'desc')->first()->id + 1);
         $data = new Events();
         $data->fill($new_request);
         $data->save();
@@ -80,7 +82,7 @@ class EventsController extends Controller
         if($request->file('backgroud_image')){
             $new_request['backgroud_image'] = $cc->upload($request->file('backgroud_image'), 'backgroud-image');
         }
-
+        $new_request['slug'] = slugify($request->name) .'-'.$id;
         $data->fill($new_request);
         $data->save();
         return redirect('admin/event');
@@ -103,5 +105,8 @@ class EventsController extends Controller
     }
 
 }
+
+
+
 
 

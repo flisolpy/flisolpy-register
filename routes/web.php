@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index']);
-Route::get('/incripcion/{slug}', [\App\Http\Controllers\SiteController::class, 'incription']);
+Route::get('/incripcion/{slug}/{id}', [\App\Http\Controllers\SiteController::class, 'incription']);
 
 
 

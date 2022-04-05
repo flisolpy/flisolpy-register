@@ -16,9 +16,9 @@ class SiteController extends Controller
     }
 
 
-    public function incription($slug){
+    public function incription($slug, $id){
 
-        $event = Events::Find($slug);
+        $event = Events::Find($id);
         $title = $event->name;
         $description = $event->desription;
 
