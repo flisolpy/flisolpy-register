@@ -9,7 +9,7 @@
                         <img src="{{ $event->image }}" width="60%" alt="{{ $event->name }}">
                         <h1>{{ $event->name }}</h1>
 
-                        <p class="card-text">{{ $event->description }}</p>
+                        <p class="card-text">{!!   $event->description !!}</p>
 
 
                         <p>Te invitamos a que hagas parte de este evento, llena el siguiente formulario para reservar tu lugar</p>
