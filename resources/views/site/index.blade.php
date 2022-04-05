@@ -16,7 +16,7 @@
                             <img src="{{ $file->image }}" width="60%" alt="{{ $file->name }}">
                             <p class="card-text">{{ $file->description }}</p>
                             @if($file->enable_register)
-                                <a href="#" class="btn btn-primary">Inscribirse</a>
+                                <a href="/incripcion/{{ $file->id }}" title="Incripcion {{ $file->name }}" class="btn btn-primary">Inscribirse</a>
                             @endif
                         </div>
                         <div class="card-footer text-muted">

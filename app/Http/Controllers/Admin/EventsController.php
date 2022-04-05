@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CoreController;
 use App\Models\Events;
 use Illuminate\Http\Request;
+
+
 
 class EventsController extends Controller
 {
@@ -35,9 +38,21 @@ class EventsController extends Controller
     public function store(Request $request)
     {
 
-        $event = new Events();
-        $event->fill($request->all());
-        $event->save();
+
+        $cc = new CoreController();
+        $new_request = $request->all();
+
+        if($request->file('image')){
+            $new_request['image'] = $cc->upload($request->file('image'), 'images');
+        }
+
+        if($request->file('backgroud_image')){
+            $new_request['backgroud_image'] = $cc->upload($request->file('backgroud_image'), 'backgroud-image');
+        }
+
+        $data = new Events();
+        $data->fill($new_request);
+        $data->save();
         return redirect('admin/event');
     }
 
@@ -53,13 +68,33 @@ class EventsController extends Controller
 
     public function update($id, Request $request)
     {
+        $data = Events::Find($id);
+        $cc = new CoreController();
+        $new_request = $request->all();
 
-        $event = Events::Find($id);
-        $event->fill($request->all());
-        $event->save();
+        if($request->file('image')){
+            $new_request['image'] = $cc->upload($request->file('image'), 'images');
+        }
+
+        if($request->file('backgroud_image')){
+            $new_request['backgroud_image'] = $cc->upload($request->file('backgroud_image'), 'backgroud-image');
+        }
+
+        $data->fill($new_request);
+        $data->save();
         return redirect('admin/event');
     }
 
+
+    public function delete_file($file_path, $id, $row_name){
+        $cc = new CoreController();
+        if($cc->delete_file($file_path)){
+            $data = Events::Find($id);
+            $data->$row_name = null;
+            $data->save();
+            return redirect()->back();
+        }
+    }
 
     public function get_data($request)
     {
