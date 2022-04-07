@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index']);
 Route::get('/incripcion/{slug}/{id}', [\App\Http\Controllers\SiteController::class, 'incription']);
+Route::get('/incripcion-confirm', [\App\Http\Controllers\SiteController::class, 'incription_confirm']);
+Route::post('/incripcion', [\App\Http\Controllers\SiteController::class, 'incription_save']);
+
 
 
 

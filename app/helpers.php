@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Session;
 
 function get_events(){
     return \App\Models\Events::where('has_finish', false)->paginate(10);
@@ -33,3 +33,19 @@ function slugify($text, string $divider = '-')
     return $text;
 }
 
+
+
+function displayAlert()
+{
+    if (Session::has('message'))
+    {
+        list($type, $message) = explode('|', Session::get('message'));
+
+        $type = $type == 'error' ?: 'danger';
+        $type = $type == 'message' ?: 'info';
+
+        return sprintf('<div class="alert alert-%s">%s</div>', $type, $message);
+    }
+
+    return '';
+}

@@ -19,6 +19,7 @@ class Subscribed extends Migration
             $table->string('work_place');
             $table->integer('event_id');
             $table->string('phone');
+            $table->string('email');
             $table->boolean('confirmed')->default(false);
             $table->integer('create_uid')->nullable();
             $table->integer('write_uid')->nullable();
