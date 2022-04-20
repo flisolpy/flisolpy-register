@@ -49,3 +49,15 @@ function displayAlert()
 
     return '';
 }
+
+
+function formatDate($date){
+    return date('d/m/Y', strtotime($date));
+}
+
+
+function totalIncriptos(){
+
+   return 100;
+
+}

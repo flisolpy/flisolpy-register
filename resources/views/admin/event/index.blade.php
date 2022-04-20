@@ -33,7 +33,7 @@
                                     <td>{{ $file->id }}</td>
                                     <td><img src="{{ $file->image }}" width="100%" class="img img-thumbnail" alt=""></td>
                                     <td><strong>{{ $file->name }}</strong></td>
-                                    <td class="text-center">{{ $file->init_date }}</td>
+                                    <td class="text-center">{{ formatDate($file->init_date) }}</td>
                                     <td class="text-center">{{ $file->total_registered }}</td>
                                     <td class="text-center">{{ $file->total_confirmed }}</td>
                                     <td class="text-center">{{ $file->has_finish }}</td>

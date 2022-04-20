@@ -242,11 +242,11 @@ return [
             'text' => 'search',
         ],
         [
-            'text'        => 'Incriptos',
+            'text'        => 'Total Incriptos',
             'url'         => 'admin/suscribed',
             'icon'        => 'far fa-fw fa-user',
-            'label'       => 4,
-            'label_color' => 'success',
+//            'label'       => totalIncriptos(),
+//            'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [
@@ -259,7 +259,7 @@ return [
                 ],
                 [
                     'text' => 'Suscriptos',
-                    'url'  => '#',
+                    'url'  => 'admin/subscribed',
                 ],
                 [
                     'text' => 'Plantilla de Certificados',
