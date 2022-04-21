@@ -31,7 +31,7 @@ class EventsController extends Controller
     {
         $title = "Registrar nuevo Evento";
 
-        return view('admin.event.create', compact('title',));
+        return view('admin.event.create', compact('title'));
     }
 
 
