@@ -36,7 +36,7 @@
                                     <td class="text-center">{{ formatDate($file->init_date) }}</td>
                                     <td class="text-center">{{ $file->total_registered }}</td>
                                     <td class="text-center">{{ $file->total_confirmed }}</td>
-                                    <td class="text-center">{{ $file->has_finish }}</td>
+                                    <td class="text-center">{{ getStatus($file->has_finish) }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="/admin/event/{{$file->id}}/edit" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>

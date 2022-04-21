@@ -26,6 +26,7 @@ Auth::routes();
 
 
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
     Route::get('/event', [\App\Http\Controllers\Admin\EventsController::class, 'index'])->name('event');

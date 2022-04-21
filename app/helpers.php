@@ -61,3 +61,11 @@ function totalIncriptos(){
    return 100;
 
 }
+
+
+function getStatus($status){
+    if($status > 0){
+        return 'SI';
+    } 
+    return 'NO';
+}

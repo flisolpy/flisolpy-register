@@ -3,8 +3,10 @@
 @section('title', $title )
 @section('content_header')
     <h1>{{ $title }}</h1>
+    {!!  displayAlert() !!}
 @stop
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">

@@ -45,7 +45,7 @@ class SubscribedController extends Controller
         $data = Subscribed::Find($id);
         $data->fill($request->all());
         $data->save();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'success|Registro actualizado');;
     }
     public function delete_file($file_path, $id, $row_name){
         $cc = new CoreController();
@@ -58,6 +58,22 @@ class SubscribedController extends Controller
     }
     public function get_data($request)
     {
-        return Subscribed::paginate(10);
+        return Subscribed::leftJoin('events', 'events.id', 'subscribed.event_id')
+        ->where(function($query) use ($request){
+            if($request->event_id)
+                $query->where('subscribed.event_id', $request->event_id);
+
+            if($request->phone)
+                $query->where('subscribed.phone', $request->phone); 
+                
+            if($request->email)
+                $query->where('subscribed.email', $request->email);  
+                
+            if($request->name)
+                $query->where('subscribed.name', 'LIKE', '%'.$request->name.'%');        
+
+        })
+        ->select('subscribed.*', 'events.name as event')
+        ->paginate(50);
     }
 }

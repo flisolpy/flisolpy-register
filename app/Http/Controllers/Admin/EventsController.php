@@ -52,7 +52,12 @@ class EventsController extends Controller
 
 
 
-        $new_request['slug'] = slugify($request->name) .'-'.  (Events::select('id')->orderBy('id', 'desc')->first()->id + 1);
+        if(Events::count() > 0) {
+            $new_request['slug'] = slugify($request->name) .'-'.  (Events::select('id')->orderBy('id', 'desc')->first()->id + 1);
+        } else {
+            $new_request['slug'] = slugify($request->name) .'-'.  1;
+        }
+        
         $data = new Events();
         $data->fill($new_request);
         $data->save();
