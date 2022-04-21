@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/event/delete_file/{filepath}/{id}/{row_name}', [\App\Http\Controllers\Admin\EventsController::class, 'delete_file'])->name('delete.file');
 
     Route::get('/subscribed', [\App\Http\Controllers\Admin\SubscribedController::class, 'index'])->name('subscribed');
+    Route::get('/subscribed/create', [\App\Http\Controllers\Admin\SubscribedController::class, 'create'])->name('subscribed.create');
     Route::get('/subscribed/{id}/edit', [\App\Http\Controllers\Admin\SubscribedController::class, 'edit'])->name('subscribed.edit');
     Route::patch('/subscribed/{id}', [\App\Http\Controllers\Admin\SubscribedController::class, 'update'])->name('subscribed.update');
 });
