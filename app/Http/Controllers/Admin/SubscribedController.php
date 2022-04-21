@@ -47,7 +47,15 @@ class SubscribedController extends Controller
         $data->save();
         return redirect()->back();
     }
-
+    public function delete_file($file_path, $id, $row_name){
+        $cc = new CoreController();
+        if($cc->delete_file($file_path)){
+            $data = Events::Find($id);
+            $data->$row_name = null;
+            $data->save();
+            return redirect()->back();
+        }
+    }
     public function get_data($request)
     {
         return Subscribed::paginate(10);
