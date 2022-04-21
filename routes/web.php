@@ -41,4 +41,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/subscribed/{id}/edit', [\App\Http\Controllers\Admin\SubscribedController::class, 'edit'])->name('subscribed.edit');
     Route::patch('/subscribed/{id}', [\App\Http\Controllers\Admin\SubscribedController::class, 'update'])->name('subscribed.update');
     Route::get('/subscribed/delete_file/{filepath}/{id}/{row_name}', [\App\Http\Controllers\Admin\SubscribedController::class, 'delete_file'])->name('delete.file');
+
+    Route::get('/lottery', [\App\Http\Controllers\Admin\LotteryController::class, 'index'])->name('lottery');
+
 });
