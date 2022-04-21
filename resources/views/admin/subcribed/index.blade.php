@@ -3,6 +3,7 @@
 @section('title', $title )
 @section('content_header')
     <h1>{{ $title }}</h1>
+    {!!  displayAlert() !!}
 @stop
 @section('content')
     <div class="container">
@@ -58,7 +59,7 @@
                                     <td>
                                         <div class="btn-group">
                                             <a href="/admin/subscribed/{{$file->id}}/edit" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-default btn-sm text-red"><i class="fa fa-trash"></i></a>
+                                            <a href="/admin/subscribed/{{$file->id}}/show" class="btn btn-default btn-sm text-red"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -66,7 +67,7 @@
                             </tbody>
                         </table>
 
-             
+
                         @else
                             <p class="alert alert-info">
                                 Ningun registro
@@ -74,9 +75,9 @@
                         @endif
 
                     </div>
-          
-    
-          
+
+
+
 
                 </div>
             </div>

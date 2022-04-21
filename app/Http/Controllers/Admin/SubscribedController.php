@@ -40,12 +40,31 @@ class SubscribedController extends Controller
     }
 
 
+    public function show($id)
+    {
+
+        $title = "Editar Suscritor";
+        $data = Subscribed::Find($id);
+        return view('admin.subcribed.show', compact('title', 'data'));
+    }
+
+
+    function delete($id, Request $request){
+        if($request->confirmed == 1){
+            Subscribed::where('id', $id)->delete();
+            return redirect('/admin/subscribed')->with('message', 'success|Registro borrado');
+        }
+
+        return redirect('/admin/subscribed')->with('message', 'warning|No se borro el registro');
+    }
+
+
     public function update($id, Request $request)
     {
         $data = Subscribed::Find($id);
         $data->fill($request->all());
         $data->save();
-        return redirect()->back()->with('message', 'success|Registro actualizado');;
+        return redirect()->back()->with('message', 'success|Registro actualizado');
     }
     public function delete_file($file_path, $id, $row_name){
         $cc = new CoreController();
@@ -64,13 +83,13 @@ class SubscribedController extends Controller
                 $query->where('subscribed.event_id', $request->event_id);
 
             if($request->phone)
-                $query->where('subscribed.phone', $request->phone); 
-                
+                $query->where('subscribed.phone', $request->phone);
+
             if($request->email)
-                $query->where('subscribed.email', $request->email);  
-                
+                $query->where('subscribed.email', $request->email);
+
             if($request->name)
-                $query->where('subscribed.name', 'LIKE', '%'.$request->name.'%');        
+                $query->where('subscribed.name', 'LIKE', '%'.$request->name.'%');
 
         })
         ->select('subscribed.*', 'events.name as event')

@@ -262,6 +262,10 @@ return [
                     'url'  => 'admin/subscribed',
                 ],
                 [
+                    'text' => 'Sorteos',
+                    'url'  => 'admin/lottery',
+                ],
+                [
                     'text' => 'Plantilla de Certificados',
                     'url'  => '#',
                 ],

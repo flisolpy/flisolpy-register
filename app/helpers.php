@@ -66,6 +66,11 @@ function totalIncriptos(){
 function getStatus($status){
     if($status > 0){
         return 'SI';
-    } 
+    }
     return 'NO';
+}
+
+
+function getLastSorted(){
+    return \App\Models\Lottery::orderBy('id', 'desc')->first();
 }

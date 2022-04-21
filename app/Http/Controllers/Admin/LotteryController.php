@@ -24,6 +24,7 @@ class LotteryController extends Controller
         if($request->lottery){
            sleep(10);
            $this->lottety();
+           return redirect('/admin/lottery');
         }
 
         $data = $this->get_data($request);
@@ -35,7 +36,7 @@ class LotteryController extends Controller
 
 
     public function lottety(){
-       $sorted = Subscribed::inRandomOrder()->first();
+       $sorted = Subscribed::where('confirmed', 1)->inRandomOrder()->first();
        if($sorted){
            $this->store($sorted);
        }

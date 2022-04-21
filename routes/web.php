@@ -39,7 +39,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/subscribed', [\App\Http\Controllers\Admin\SubscribedController::class, 'index'])->name('subscribed');
     Route::get('/subscribed/create', [\App\Http\Controllers\Admin\SubscribedController::class, 'create'])->name('subscribed.create');
     Route::get('/subscribed/{id}/edit', [\App\Http\Controllers\Admin\SubscribedController::class, 'edit'])->name('subscribed.edit');
+    Route::get('/subscribed/{id}/show', [\App\Http\Controllers\Admin\SubscribedController::class, 'show'])->name('subscribed.show');
     Route::patch('/subscribed/{id}', [\App\Http\Controllers\Admin\SubscribedController::class, 'update'])->name('subscribed.update');
+    Route::delete('/subscribed/{id}', [\App\Http\Controllers\Admin\SubscribedController::class, 'delete'])->name('subscribed.delete');
+
     Route::get('/subscribed/delete_file/{filepath}/{id}/{row_name}', [\App\Http\Controllers\Admin\SubscribedController::class, 'delete_file'])->name('delete.file');
 
     Route::get('/lottery', [\App\Http\Controllers\Admin\LotteryController::class, 'index'])->name('lottery');
