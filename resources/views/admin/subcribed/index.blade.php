@@ -19,8 +19,9 @@
                             <thead>
                                 <th width="10px">ID</th>
                                 <th width="160px">NOMBRE Y APELLIDO</th>
-                                <th>EVENTO</th>
                                 <th>TELEFONO</th>
+                                <th>EMAIL</th>
+                                <th>EVENTO</th>
                                 <th>FECHA INSCRIPCION</th>
                                 <th>FECHA DE CONFIMACION</th>
                                 <th width="20px"><i class="fa fa-gears"></i></th>
