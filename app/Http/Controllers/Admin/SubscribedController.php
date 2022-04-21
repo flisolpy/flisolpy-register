@@ -62,10 +62,17 @@ class SubscribedController extends Controller
     public function update($id, Request $request)
     {
         $data = Subscribed::Find($id);
+        $event = new EventsController();
+        if($request->confirmed ==  $data->confirmed){
+            return redirect()->back()->with('message', 'danger|No se actualizo el registro');
+        }
+        $event->update_confirm_count($data->event_id, $request->confirmed);
         $data->fill($request->all());
         $data->save();
         return redirect()->back()->with('message', 'success|Registro actualizado');
     }
+
+
     public function delete_file($file_path, $id, $row_name){
         $cc = new CoreController();
         if($cc->delete_file($file_path)){
@@ -75,6 +82,9 @@ class SubscribedController extends Controller
             return redirect()->back();
         }
     }
+
+
+
     public function get_data($request)
     {
         return Subscribed::leftJoin('events', 'events.id', 'subscribed.event_id')

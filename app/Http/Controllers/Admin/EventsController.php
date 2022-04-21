@@ -57,7 +57,7 @@ class EventsController extends Controller
         } else {
             $new_request['slug'] = slugify($request->name) .'-'.  1;
         }
-        
+
         $data = new Events();
         $data->fill($new_request);
         $data->save();
@@ -107,6 +107,16 @@ class EventsController extends Controller
     public function get_data($request)
     {
         return Events::paginate(10);
+    }
+
+
+    public function update_confirm_count($event_id, $confirm){
+        if($confirm){
+            Events::where('id', $event_id)->increment('total_confirmed', 1);
+        } else {
+            Events::where('id', $event_id)->decrement('total_confirmed', 1);
+        }
+
     }
 
 }

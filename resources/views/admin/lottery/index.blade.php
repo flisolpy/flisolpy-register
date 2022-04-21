@@ -16,7 +16,7 @@
                     <div class="card-body">
                         @if($last_sorted = getLastSorted())
                         <div class="text-center">
-                            <h1 id="winner" class="text-center text-purple">{{ strtoupper($last_sorted->name) }}</small> </h1>
+                            <h1 id="winner" class="text-center text-purple"><strong>{{ strtoupper($last_sorted->name) }}</strong> </h1>
                             <br>
                             <a href="?lottery=lottety" id="button" class="btn btn-primary btn-lg" onclick="showLoader()">Sortear</a>
                             <span  id="myname">

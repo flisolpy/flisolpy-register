@@ -51,7 +51,7 @@
                             @foreach($data as $file)
                                 <tr >
                                     <td>{{ $file->id }}</td>
-                                    <td><strong>{{ $file->name }}</strong></td>
+                                    <td><strong>{{ strtoupper($file->name) }}</strong></td>
                                     <td class="text-center">{{ $file->phone }}</td>
                                     <td class="text-center">{{ $file->email }}</td>
                                     <td class="text-center"><a href="?event_id={{ $file->event_id }}">{{ $file->event }}</a></td>
