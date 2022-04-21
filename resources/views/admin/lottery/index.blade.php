@@ -21,6 +21,7 @@
                                 <tr>
                                     <th width="10px">ID</th>
                                     <th>NOMBRES</th>
+                                    <th>TELEFONO</th>
                                 </tr>
                             </thead>
 
@@ -29,19 +30,20 @@
                                 <tr >
                                     <td>{{ $file->id }}</td>
                                     <td><strong>{{ $file->name }}</strong></td>
+                                    <td><strong>{{ $file->phone }}</strong></td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
 
-             
+
                         @else
-                   
+
                         @endif
                 </div>
-                        
-    
-          
+
+
+
 
                 </div>
             </div>

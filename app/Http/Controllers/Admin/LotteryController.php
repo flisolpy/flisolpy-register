@@ -20,13 +20,13 @@ class LotteryController extends Controller
     {
 
         $title = "Sorteos";
-        
-        if($request->lottery == 'lottery'){
-            
-           return $this->lottety();
+
+        if($request->lottery){
+           sleep(10);
+           $this->lottety();
         }
 
-        $data = $this->get_data($request);  
+        $data = $this->get_data($request);
 
 
         return view('admin.lottery.index', compact('title', 'data'));
@@ -53,7 +53,9 @@ class LotteryController extends Controller
 
     public function get_data($request)
     {
-        return Lottery::orderBy('id', 'desc')->paginate(20);
+        return Lottery::leftJoin('subscribed', 'subscribed.id', 'lotteries.subscribe_id')
+            ->select('lotteries.*', 'subscribed.phone')
+            ->orderBy('id', 'desc')->paginate(20);
     }
 
 }
