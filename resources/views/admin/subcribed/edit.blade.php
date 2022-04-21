@@ -16,10 +16,9 @@
                     <div class="card-body">
                         {{ Form::model($data, ['route' => ['subscribed.update', $data->id], 'method' => 'patch', 'files' => true]) }}
                         <div class="row">
-                            
                             <div class="col-6 form-group">
                                 <label>Confirmar Presencia</label>
-                                <select name="confirmed" required class="form-control">
+                                <select name="confirmed" class="form-control" required>
                                     <option></option>
                                     <option value="1" @if($data->confirmed == 1 ) selected @endif>SI</option>
                                     <option value="0" @if($data->confirmed == 0 ) selected @endif>NO</option>
