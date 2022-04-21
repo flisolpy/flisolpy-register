@@ -12,6 +12,7 @@
                     <div class="card-header">
                         {{ __($title) }}
 
+                        <a href="/admin/subscribed/create" class="btn btn-primary btn-sm fa-pull-right">Nuevo</a>
                     </div>
                     <div class="card-body">
                         @if(is_object($data))
@@ -31,6 +32,8 @@
                                 <tr>
                                     <td>{{ $file->id }}</td>
                                     <td><strong>{{ $file->name }}</strong></td>
+                                    <td class="text-center">{{ $file->phone }}</td>
+                                    <td class="text-center">{{ $file->email }}</td>
                                     <td class="text-center">-</td>
                                     <td class="text-center">{{ $file->create_at }}</td>
                                     <td class="text-center">{{ $file->updated_at }}</td>
