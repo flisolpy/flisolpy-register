@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         {{ __($title) }}
-                        <a href="/admin/event" class="btn btn-default btn-sm fa-pull-right">Cerrar</a>
+                        <a href="/admin/subscribed" class="btn btn-default btn-sm fa-pull-right">Cerrar</a>
                     </div>
                     <div class="card-body">
-                        {{ Form::open(['url' => '/admin/event', 'method' => 'post', 'files' => true]) }}
+                        {{ Form::open(['url' => '/admin/subscribed', 'method' => 'post', 'files' => true]) }}
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label>Nombre y Apellido</label>
