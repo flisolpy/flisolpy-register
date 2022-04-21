@@ -23,10 +23,18 @@ class SubscribedController extends Controller
         return view('admin.subcribed.index', compact('title', 'data'));
 
     }
+
+    public function create()
+    {
+        $title = "Registrar nuevo suscritor";
+
+        return view('admin.subcribed.create', compact('title'));
+    }
+
     public function edit($id)
     {
 
-        $title = "Editar Subscripcion";
+        $title = "Editar Suscritor";
         $data = Subscribed::Find($id);
         return view('admin.subcribed.edit', compact('title', 'data'));
     }
@@ -39,8 +47,6 @@ class SubscribedController extends Controller
         $data->save();
         return redirect()->back();
     }
-
-
 
     public function get_data($request)
     {
