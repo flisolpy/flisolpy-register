@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        {{ __($title) }}
+
                     </div>
                     <div class="card-body">
 
@@ -29,30 +29,30 @@
                             <a href="?lottery=lottety" id="button" class="btn btn-primary btn-lg" onclick="showLoader()">Sortear</a>
                         </div>
 
-                    @if(is_object($data))
+                    @if(count($data) > 0)
+                        <div>
+                            <h2>Últimos sorteados</h2>
+                        </div>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th width="10px">ID</th>
-                                    <th>NOMBRES</th>
+                                    <th width="10px">#</th>
+                                    <th>SORTEADO</th>
                                     <th>TELEFONO</th>
                                 </tr>
                             </thead>
 
                             <tbody>
+                            @php($i = count($data) )
                             @foreach($data as $file)
                                 <tr >
-                                    <td>{{ $file->id }}</td>
+                                    <td>{{ $i-- }}</td>
                                     <td><strong>{{ strtoupper($file->name) }}</strong></td>
                                     <td><strong>{{ $file->phone }}</strong></td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-
-
-                        @else
-
                         @endif
                 </div>
 
