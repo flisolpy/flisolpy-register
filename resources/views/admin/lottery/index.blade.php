@@ -14,19 +14,21 @@
                         {{ __($title) }}
                     </div>
                     <div class="card-body">
-                        @if($last_sorted = getLastSorted())
+
                         <div class="text-center">
+                            @if($last_sorted = getLastSorted())
                             <h1 id="winner" class="text-center text-purple"><strong>{{ strtoupper($last_sorted->name) }}</strong> </h1>
-                            <br>
-                            <a href="?lottery=lottety" id="button" class="btn btn-primary btn-lg" onclick="showLoader()">Sortear</a>
+                            @endif
                             <span  id="myname">
                                 <i class="fa fa-spinner fa-5x fa-spin text-red"></i>
                                 <i class="fa fa-spinner fa-5x fa-spin text-blue"></i>
                                 <i class="fa fa-spinner fa-5x fa-spin text-green"></i>
                                 <i class="fa fa-spinner fa-5x fa-spin text-yellow"></i>
                             </span>
+
+                            <a href="?lottery=lottety" id="button" class="btn btn-primary btn-lg" onclick="showLoader()">Sortear</a>
                         </div>
-                        @endif
+
                     @if(is_object($data))
                         <table class="table table-hover">
                             <thead>
