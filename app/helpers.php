@@ -58,8 +58,7 @@ function formatDate($date){
 
 
 function totalIncriptos(){
-
-   return 100;
+   return 1;
 
 }
 

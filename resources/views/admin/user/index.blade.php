@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">
                         {{ __($title) }}
-                        <a href="/admin/subscribed/create" class="btn btn-primary btn-sm fa-pull-right">Nuevo</a>
+                        <a href="/admin/user/create" class="btn btn-primary btn-sm fa-pull-right">Nuevo</a>
                     </div>
                     <div class="card-body">
                         @if(is_object($data))
@@ -21,10 +21,7 @@
                                 <tr>
                                     <th width="10px">ID</th>
                                     <th>NOMBRES</th>
-                                    <th>TELEFONO</th>
                                     <th>EMAIL</th>
-                                    <th>EVENTO</th>
-                                    <th width="5px">CONFIRMADO</th>
                                     <th width="20px"><i class="fa fa-gears"></i></th>
                                 </tr>
                                 <form action="">
@@ -34,13 +31,10 @@
                                         <input type="text" name="name" placeholder="Nombre" value="{{ request('name') }}" class="form-control">
                                     </th>
                                     <th width="160px">
-                                        <input type="text" name="phone" placeholder="Telefono" value="{{ request('phone') }}" class="form-control">
-                                    </th>
-                                    <th width="160px">
                                         <input type="text" name="email" placeholder="Email" value="{{ request('email') }}" class="form-control">
                                     </th>
-                                    <th colspan="2"><button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button></th>
-                                    <th width="20px"></th>
+                                    <th><button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button></th>
+
                                 </tr>
 
                                 </form>
@@ -51,14 +45,11 @@
                                 <tr >
                                     <td>{{ $file->id }}</td>
                                     <td><strong>{{ strtoupper($file->name) }}</strong></td>
-                                    <td class="text-center">{{ $file->phone }}</td>
                                     <td class="text-center">{{ $file->email }}</td>
-                                    <td class="text-center"><a href="?event_id={{ $file->event_id }}">{{ $file->event }}</a></td>
-                                    <td class="text-center @if($file->confirmed) alert alert-success @endif">{{ getStatus($file->confirmed) }}</td>
-                                    <td>
+                                   <td>
                                         <div class="btn-group">
-                                            <a href="/admin/subscribed/{{$file->id}}/edit" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
-                                            <a href="/admin/subscribed/{{$file->id}}/show" class="btn btn-default btn-sm text-red"><i class="fa fa-trash"></i></a>
+                                            <a href="/admin/user/{{$file->id}}/edit" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
+                                            <a href="/admin/user/{{$file->id}}/show" class="btn btn-default btn-sm text-red"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>

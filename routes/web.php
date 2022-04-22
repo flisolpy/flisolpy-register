@@ -25,6 +25,7 @@ Route::post('/incripcion', [\App\Http\Controllers\SiteController::class, 'incrip
 Auth::routes();
 
 
+Route::get('/register', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -42,9 +43,19 @@ Route::prefix('admin')->group(function () {
     Route::get('/subscribed/{id}/show', [\App\Http\Controllers\Admin\SubscribedController::class, 'show'])->name('subscribed.show');
     Route::patch('/subscribed/{id}', [\App\Http\Controllers\Admin\SubscribedController::class, 'update'])->name('subscribed.update');
     Route::delete('/subscribed/{id}', [\App\Http\Controllers\Admin\SubscribedController::class, 'delete'])->name('subscribed.delete');
-
     Route::get('/subscribed/delete_file/{filepath}/{id}/{row_name}', [\App\Http\Controllers\Admin\SubscribedController::class, 'delete_file'])->name('delete.file');
 
     Route::get('/lottery', [\App\Http\Controllers\Admin\LotteryController::class, 'index'])->name('lottery');
+
+
+    Route::get('/user', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('user');
+    Route::post('/user', [\App\Http\Controllers\Admin\UserController::class, 'store'])->name('user.store');
+    Route::get('/user/create', [\App\Http\Controllers\Admin\UserController::class, 'create'])->name('user.create');
+    Route::get('/user/{id}/edit', [\App\Http\Controllers\Admin\UserController::class, 'edit'])->name('user.edit');
+    Route::get('/subscribed/{id}/show', [\App\Http\Controllers\Admin\UserController::class, 'show'])->name('user.show');
+    Route::patch('/user/{id}', [\App\Http\Controllers\Admin\UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{id}', [\App\Http\Controllers\Admin\UserController::class, 'delete'])->name('user.delete');
+
+
 
 });

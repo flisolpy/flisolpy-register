@@ -243,7 +243,7 @@ return [
         ],
         [
             'text'        => 'Total Incriptos',
-            'url'         => 'admin/suscribed',
+            'url'         => 'admin/subscribed',
             'icon'        => 'far fa-fw fa-user',
 //            'label'       => totalIncriptos(),
 //            'label_color' => 'success',
@@ -266,6 +266,10 @@ return [
                     'url'  => 'admin/lottery',
                 ],
                 [
+                    'text' => 'Usuarios',
+                    'url'  => 'admin/user',
+                ],
+                [
                     'text' => 'Plantilla de Certificados',
                     'url'  => '#',
                 ],
@@ -273,10 +277,7 @@ return [
                     'text' => 'Certificado',
                     'url'  => '#',
                 ],
-                [
-                    'text' => 'Usuarios',
-                    'url'  => '#',
-                ],
+
             ],
         ]
     ],
