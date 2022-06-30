@@ -242,7 +242,7 @@ return [
             'text' => 'search',
         ],
         [
-            'text'        => 'Total Incriptos',
+            'text'        => 'Inscriptos',
             'url'         => 'admin/subscribed',
             'icon'        => 'far fa-fw fa-user',
 //            'label'       => totalIncriptos(),
