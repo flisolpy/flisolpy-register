@@ -57,9 +57,4 @@ Route::prefix('admin')->group(function () {
     Route::delete('/user/{id}', [\App\Http\Controllers\Admin\UserController::class, 'delete'])->name('user.delete');
 
 
-    //Teste route
-    //Teste Git Sumodule
-
-
-
 });
